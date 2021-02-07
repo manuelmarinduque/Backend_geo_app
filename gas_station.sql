@@ -35,3 +35,16 @@ insert into gas_station values
 
 select * from gas_station;
 
+create table usuario (
+	doc_number int(20) not null auto_increment,
+    password varchar(256) not null,
+    doc_type varchar(20) not null,
+    full_name varchar(256) not null,
+    genre varchar(20) not null,
+    nacionality varchar(20) not null,
+    address varchar(256) not null,
+	phone varchar(256) not null,
+    primary key(doc_number)
+);
+
+select * from usuario;
