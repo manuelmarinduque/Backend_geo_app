@@ -36,8 +36,9 @@ insert into gas_station (name, address, phone, latitude, longitude) values
 
 select * from gas_station;
 
-create table usuario (
-	doc_number int(20) not null auto_increment,
+create table user (
+	id int(11) not null auto_increment,
+	doc_number int(20) not null,
     password varchar(256) not null,
     doc_type varchar(20) not null,
     full_name varchar(256) not null,
@@ -46,7 +47,7 @@ create table usuario (
     address varchar(256) not null,
 	phone varchar(256) not null,
     is_active bool default true,
-    primary key(doc_number)
+    primary key(id)
 );
 
 select * from usuario;
