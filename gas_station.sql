@@ -38,7 +38,7 @@ select * from gas_station;
 
 create table user (
 	id int(11) not null auto_increment,
-	doc_number int(20) not null,
+	doc_number int(20) not null unique,
     password varchar(256) not null,
     doc_type varchar(20) not null,
     full_name varchar(256) not null,
