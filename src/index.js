@@ -1,5 +1,6 @@
-const express = require("express");
 const station = require("./routes/gas_station");
+
+const express = require("express");
 const app = express();
 
 // Settings
