@@ -1,8 +1,10 @@
-const express = require('express');
+const station = require("./routes/gas_station");
+
+const express = require("express");
 const app = express();
 
 // Settings
-app.set('port', process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3000);
 
 // Middlewares
 app.use(express.json());
@@ -12,6 +14,6 @@ app.use('/station', require('./routes/gas_station'));
 app.use('/user', require('./routes/user.routes'));
 
 // Starting the server
-app.listen(app.get('port'), () => {
-    console.log(`Server on port ${app.get('port')}`)
+app.listen(app.get("port"), () => {
+  console.log(`Server on port ${app.get("port")}`);
 });
