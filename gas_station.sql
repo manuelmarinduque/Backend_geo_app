@@ -4,13 +4,13 @@ use gas_station;
 
 create table gas_station (
 	id int(11) not null auto_increment,
-  name varchar(256) not null,
-  address varchar(256) not null,
+	name varchar(256) not null,
+	address varchar(256) not null,
 	phone varchar(256) not null,
 	latitude double not null,
 	longitude double not null,
-  is_active bool default true,
-  primary key(id)
+	is_active bool default true,
+	primary key(id)
 );
 
 insert into gas_station (name, address, phone, latitude, longitude) values
@@ -38,16 +38,16 @@ select * from gas_station;
 
 create table user (
 	id int(11) not null auto_increment,
-	doc_number int(20) not null,
-  password varchar(256) not null,
-  doc_type varchar(20) not null,
-  full_name varchar(256) not null,
-  genre varchar(20) not null,
-  nacionality varchar(20) not null,
-  address varchar(256) not null,
+	doc_number int(20) not null unique,
+	password varchar(256) not null,
+	doc_type varchar(20) not null,
+	full_name varchar(256) not null,
+	genre varchar(20) not null,
+	nacionality varchar(20) not null,
+	address varchar(256) not null,
 	phone varchar(256) not null,
   is_active bool default true,
   primary key(id)
 );
 
-select * from usuario;
+select * from user;
