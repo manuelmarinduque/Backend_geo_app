@@ -18,9 +18,9 @@ router.get('/get_users', (req, res) => {
     })
 })
 
-router.get('/get_user/:doc_number', (req, res) => {
-    mysqlConnection.query(`SELECT * FROM usuario WHERE doc_number=${req.params.doc_number} AND is_active=1`,  (error, row) => {
-        error ? res.status(500).json({message: error.message}) : res.status(200).json({data: row})
+router.get('/get_user', token_required, (req, res) => {
+    jwt.verify(req.token, "3ywg&hsnxu43o9+iaz&sdtr", (error, data) => {
+        error? res.status(403).json({message: 'Invalid token'}) : res.status(200).json({data: data.row[0]})
     })
 })
 
@@ -68,5 +68,19 @@ router.post('/login', (req, res) => {
         }
     })
 })
+
+function token_required(req, res, next) {
+    console.log(req.headers)
+    const bearer_header = req.headers.authorization
+    if (typeof bearer_header !== 'undefined') {
+        const bearer = bearer_header.split(' ')
+        console.log(bearer)
+        const token = bearer[1]
+        req.token = token
+        next()
+    } else {
+        res.status(403)
+    }
+}
 
 module.exports = router
