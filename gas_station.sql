@@ -9,7 +9,7 @@ create table gas_station (
 	phone varchar(256) not null,
 	latitude double not null,
 	longitude double not null,
-	is_active bool default true,
+	is_active boolean default true,
 	primary key(id)
 );
 
@@ -46,8 +46,8 @@ create table user (
 	nacionality varchar(20) not null,
 	address varchar(256) not null,
 	phone varchar(256) not null,
-  is_active bool default true,
-  primary key(id)
+	is_active boolean default true,
+	primary key(id)
 );
 
 select * from user;
