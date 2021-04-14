@@ -9,6 +9,9 @@ create table rol (
 	primary key (id_rol)
 );
 
+insert into rol (nombre_rol) values ('Administrador');
+insert into rol (nombre_rol) values ('Normal');
+
 create table empresa (
 	id_empresa int not null auto_increment,
     nombre_empresa varchar(25) not null,
@@ -40,7 +43,7 @@ create table usuario (
 	numero_documento int not null unique,
     tipo_documento varchar(20) not null,
 	password varchar(256) not null,
-    id_rol int not null,
+    id_rol int default 2,
     id_empresa int,
     id_sede int,
 	genero varchar(20) not null,
