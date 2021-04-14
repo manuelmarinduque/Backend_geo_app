@@ -11,8 +11,8 @@ app.set("port", process.env.PORT || 3000);
 app.use(express.json());
 
 // Routes
-app.use('/station', station);
-app.use('/user', user);
+app.use('/sede', station);
+app.use('/usuario', user);
 
 // Starting the server
 app.listen(app.get("port"), () => {

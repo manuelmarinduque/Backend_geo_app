@@ -4,7 +4,7 @@ const mysqlConnection = require("../database");
 const jwt = require("jsonwebtoken");
 
 router.get("/", (req, res) => {
-  let query = "SELECT * FROM gas_station WHERE is_active=1";
+  let query = "SELECT * FROM gas_station WHERE estado=1";
   mysqlConnection.query(query, (error, rows) => {
     error
       ? res.status(500).json({ message: error.message })
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   let id = req.params.id;
-  let query = `SELECT * from gas_station WHERE id=${id} AND is_active=1 LIMIT 1`;
+  let query = `SELECT * from gas_station WHERE id=${id} AND estado=1 LIMIT 1`;
   mysqlConnection.query(query, (err, results, fields) => {
     if (err) {
       res.status(500).json({ message: err.message });
@@ -49,7 +49,7 @@ router.post("/", (req, res) => {
 
 router.delete("/", (req, res) => {
   let id = req.body.id;
-  let query = `UPDATE gas_station SET is_active=0 WHERE id=${id}`;
+  let query = `UPDATE gas_station SET estado=0 WHERE id=${id}`;
   mysqlConnection.query(query, (err, results, fields) => {
     console.log(results);
     err

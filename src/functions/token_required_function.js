@@ -7,7 +7,7 @@ function token_required(req, res, next) {
         req.token = token
         next()
     } else {
-        res.status(403)
+        res.status(403).json({message: "El usuario no ha iniciado sesión."})
     }
 }
 
