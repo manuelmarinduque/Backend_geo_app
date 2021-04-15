@@ -32,6 +32,30 @@ router.get('/obtener_usuario', token_required, (req, res) => {
     })
 })
 
+router.get('/obtener_usuarios_empresa', token_required, (req, res) => {
+    jwt.verify(req.token, "3ywg&hsnxu43o9+iaz&sdtr", (error, data) => {
+        if (error) {
+            res.status(400).json({ message: error.message })
+        } else {
+            mysqlConnection.query(`SELECT * FROM usuario WHERE id_empresa = ${data.row[0].id_empresa} AND estado=1`, (error, row) => {
+                error? res.status(500).json({ message: error.sqlMessage }) : res.status(200).json({data: row})
+            })
+        }
+    })
+})
+
+router.get('/obtener_usuarios_sede', token_required, (req, res) => {
+    jwt.verify(req.token, "3ywg&hsnxu43o9+iaz&sdtr", (error, data) => {
+        if (error) {
+            res.status(400).json({ message: error.message })
+        } else {
+            mysqlConnection.query(`SELECT * FROM usuario WHERE id_sede = ${data.row[0].id_sede} AND estado=1`, (error, row) => {
+                error? res.status(500).json({ message: error.sqlMessage }) : res.status(200).json({data: row})
+            })
+        }
+    })
+})
+
 router.put('/actualizar_usuario', token_required, (req, res) => {
     jwt.verify(req.token, "3ywg&hsnxu43o9+iaz&sdtr", (error, data) => {
         if (error) {

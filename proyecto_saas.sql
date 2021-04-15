@@ -9,9 +9,6 @@ create table rol (
 	primary key (id_rol)
 );
 
-insert into rol (nombre_rol) values ('Administrador');
-insert into rol (nombre_rol) values ('Normal');
-
 create table empresa (
 	id_empresa int not null auto_increment,
     nombre_empresa varchar(50) not null,
@@ -113,22 +110,23 @@ create table asignacion (
     foreign key (id_sede) references sede (id_sede) on delete cascade
 );
 
+insert into rol (nombre_rol) values ('Administrador');
+insert into rol (nombre_rol) values ('Normal');
+
 insert into empresa (nombre_empresa,direccion,telefono,ciudad,departamento) values
 ('Univalle','Barrio melendez','018000250021','Cali','Valle del cauca');
 
-
-
-insert into sede(nombre_sede,id_empresa,direccion,latitud,longitud,telefono,ciudad) VALUES
-('campus Bolivar',1,'calle 14 #7-134',4.421756311890677, -76.04747754791613,'2509193','zarzal'),
-('sede victoria',1,'cra 35 #33-60',4.081414965382459, -76.18281670350552,'2241816','Tuluá'),
-('sede principe',1,'cra 22 42',4.073505121965987, -76.50397329418186,'2241816','Tuluá'),
-('sede villa campestre',1,'calle 43 # 43-33',4.070735646509457, -76.19046167565901,'2241816','Tuluá'),
-('sede Buga',1,'calle 13 # 5-21',3.9011141492507626, -76.30065056612486,'2370000','Buga'),
-('sede yumbo',1,'calle 3N # 2N-17B',3.5899459396538433, -76.49357088707909,'6699323','Yumbo'),
-('Sede palmira',1,'carrera 31 Av la carbonera',3.555550922739351, -76.29862871837057,'2716949','Palmira'),
-('san fernando',1,'calle 4B # 36b - 37',3.432105275509166, -76.54788843084134,'3212100','Cali'),
-('Melendez',1,'calle 13 # 100-00',3.3765770544303666, -76.53326348876882,'3212100','Cali'),
-('Norte del Cauca',1,'Cra 13 # 18 -445',3.0232705035885086, -76.48164436895054,'','santander de quilichao'),
-('Sede pacifico',1,'Av. simon bolivar km9',3.8831974812456536, -77.00663350476478,'2403669','Buenaventura'),
-('Sede Cartago',1,'Cra 19a',4.733990591608602, -75.90941703597983,'2135131','Cartago'),
-('sede Caicedonia',1,'cra 14# 4-48',4.329747111428853, -75.82736516754866,'2160070','Caicedonia');
+insert into sede(nombre_sede,id_empresa,direccion,latitud,longitud,telefono,ciudad) values
+('campus Bolivar', 1,'calle 14 #7-134', 4.421756311890677, -76.04747754791613, '2509193', 'zarzal'),
+('sede victoria', 1,'cra 35 #33-60', 4.081414965382459, -76.18281670350552, '2241816', 'Tuluá'),
+('sede principe', 1,'cra 22 42', 4.073505121965987, -76.50397329418186, '2241816', 'Tuluá'),
+('sede villa campestre', 1,'calle 43 # 43-33', 4.070735646509457, -76.19046167565901, '2241816', 'Tuluá'),
+('sede Buga', 1,'calle 13 # 5-21', 3.9011141492507626, -76.30065056612486, '2370000', 'Buga'),
+('sede yumbo', 1,'calle 3N # 2N-17B', 3.5899459396538433, -76.49357088707909, '6699323', 'Yumbo'),
+('Sede palmira', 1,'carrera 31 Av la carbonera', 3.555550922739351, -76.29862871837057, '2716949', 'Palmira'),
+('san fernando', 1,'calle 4B # 36b - 37', 3.432105275509166, -76.54788843084134, '3212100', 'Cali'),
+('Melendez', 1,'calle 13 # 100-00', 3.3765770544303666, -76.53326348876882, '3212100', 'Cali'),
+('Norte del Cauca', 1,'Cra 13 # 18 -445', 3.0232705035885086, -76.48164436895054, '', 'santander de quilichao'),
+('Sede pacifico', 1,'Av. simon bolivar km9', 3.8831974812456536, -77.00663350476478, '2403669',' Buenaventura'),
+('Sede Cartago', 1, 'Cra 19a', 4.733990591608602, -75.90941703597983, '2135131', 'Cartago'),
+('sede Caicedonia', 1, 'cra 14# 4-48', 4.329747111428853, -75.82736516754866, '2160070', 'Caicedonia');
